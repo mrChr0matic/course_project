@@ -1,16 +1,18 @@
 .App{
     height: 100dvh;
-    /* width: 100dvw; */
     overflow: scroll;
     overflow-x: hidden;
-    /* position: relative; */
 }
 
 .content{
     margin-top: 120px;
     width: 100%;
     display: flex; 
-    gap: 30px;
+}
+
+.content-2{
+    margin-left: 300px;
+    width: 100%;
 }
 
 .App::-webkit-scrollbar{

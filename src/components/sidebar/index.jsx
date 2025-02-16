@@ -18,11 +18,11 @@ const Sidebar = () =>{
             <div className="communities">
                 <h3>Communities</h3>
                 <ul>
-                    <li>c/Crypto</li>
-                    <li>c/Hackers</li>
-                    <li>c/Networks</li>
-                    <li>c/Testing</li>
-                    <li>c/QnA</li>
+                    <li><a href="/community" className="community">c/Crypto</a></li>
+                    <li><a href="/community" className="community">c/Hackers</a></li>
+                    <li><a href="/community" className="community">c/Networks</a></li>
+                    <li><a href="/community" className="community">c/Testing</a></li>
+                    <li><a href="/community" className="community">c/QnA</a></li>
                 </ul>
             </div>
         </div>

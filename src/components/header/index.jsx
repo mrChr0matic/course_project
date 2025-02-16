@@ -7,7 +7,7 @@ const Header = ()=>{
         <div className="nav-wrapper">
             <div className="navbar">
                 <div className="icon-name">
-                    <p>CYBERGRAM</p>
+                    <p><a href="/" className="title">CYBERGRAM</a></p>
                 </div>
                 <div className="search">
                     <form className="search-box">

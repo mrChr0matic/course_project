@@ -2,10 +2,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowUp, faArrowDown, faShare } from "@fortawesome/free-solid-svg-icons";
 import './styles.scss'
 
-const Item = () =>{
+const Item = (props) =>{
     return (
         <div className="item">
             <h1 className="item-title">Title</h1>
+            {
+                props.image ? 
+                <div className="image">
+                    <div className="image-div" style={{backgroundImage: `url(${props.image})`}}>
+                    </div>
+                    <img src={props.image} alt="img_err" className="post-image" />
+                </div>
+                : <></>
+            }
             <p className="item-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Totam, quis esse aliquid iusto accusantium possimus in eligendi vero quas?
                  Maxime culpa suscipit aliquam tenetur veritatis tempore tempora eius, nihil quidem doloribus.

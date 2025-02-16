@@ -5,7 +5,7 @@ const MainBody = () =>{
     return (
         <div className="main-body">
             <Item/>
-            <Item/>
+            <Item image={'/post_image.jpg'}/>
             <Item/>
             <Item/>
             <Item/>

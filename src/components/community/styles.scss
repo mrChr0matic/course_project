@@ -1,0 +1,24 @@
+.community{
+    position: relative;
+    .item-div{
+        display: flex;
+        padding-right: 60px;
+        position: relative;
+        .items{
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        .app-name{
+            position: fixed;
+            right: 70px;
+            bottom: 40px;
+            font-weight: 900;
+            color: #D89216;
+            font-size: 1.5rem;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+        }
+    }
+}

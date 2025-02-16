@@ -15,10 +15,16 @@ $close-trans-time: 150ms;
     justify-content: space-between;
     border-bottom: 1px solid #27374D;
 	position: fixed;
+	z-index: 1;
 	width: 96%; 
 	background-color: #000000;
 }
 
+
+.title{
+	text-decoration: none;
+	color: #D89216;
+}
 .nav-wrapper{
 	position: relative;
 	// width: 100%;

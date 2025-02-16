@@ -27,4 +27,14 @@
         border-bottom: 1px solid #27374D; 
         padding-top: 10px; 
       }
+
+
+      .community{
+        text-decoration: none;
+        color: #DBCBBD;
+      }
+
+      .community:hover{
+        text-decoration: underline;
+      }
 }

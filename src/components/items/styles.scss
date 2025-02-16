@@ -10,6 +10,28 @@
         color: #D89216;
     }
 
+    .image{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-div{
+        position: absolute;
+        width: 100% ;
+        height: 100%;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        filter: blur(70px);
+    }
+
+    .post-image{
+        width: 50%;
+        border: 1px solid #987D9A;
+    }
     .item-content{
         color: #DBCBBD;
     }
