@@ -1,0 +1,12 @@
+.main-body{
+    margin-left: 300px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-body::-webkit-scrollbar{
+    display: none;
+}
+  

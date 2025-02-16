@@ -1,0 +1,41 @@
+.item{
+    width: 85%;
+    border: 1px solid #27374D; 
+    padding: 20px;
+    border-radius: 20px; 
+    
+
+    .item-title{
+        font-size: 2em;
+        color: #D89216;
+    }
+
+    .item-content{
+        color: #DBCBBD;
+    }
+
+    .votes{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .up:hover,.down:hover,.share:hover{
+            cursor: pointer;
+            .ico-up{
+                color: #1597BB;
+            }
+            .ico-down{
+                color: #E94560;
+            }
+            .ico-share{
+                color: #346751;
+            }
+        }
+
+        .up,.down,.share{
+            background-color: #222831;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    }
+}
