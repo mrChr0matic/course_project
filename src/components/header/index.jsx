@@ -1,8 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import "./styles.scss"
+import Login from "../login";
 
-const Header = ()=>{
+const Header = (props)=>{
+    const handleClick = () =>props.setLogin(!props.login);
+
     return (
         <div className="nav-wrapper">
             <div className="navbar">
@@ -16,8 +20,9 @@ const Header = ()=>{
                     </form>
                 </div>
                 <div className="right-corner">
+                    <a className="create" href="/create">Create Community</a>
                     <p className="trending">Trending</p>
-                    <p className="login">Login</p>
+                    <p className="login" onClick={handleClick}>Login</p>
                 </div>
             </div>
         </div>

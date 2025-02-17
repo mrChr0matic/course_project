@@ -122,12 +122,22 @@ $close-trans-time: 150ms;
 .right-corner{
     display: flex;
     font-size: 1.2em;
-    justify-content: center;
-    align-items: center;
+	align-items: center;
     gap: 10px;
+
     .login,.trending{
         background-color: #D89216;
-        border-radius: 30px;
+        border-radius: 15px;
         padding: 10px;
     }
+
+	.create{
+		border: 1px solid #D89216;
+		color: #D89216;
+		padding: 10px;
+		border-radius: 15px;
+		cursor: pointer;
+		text-decoration: none;
+		margin: auto;
+	}
 }

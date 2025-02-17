@@ -1,0 +1,104 @@
+.create{
+    margin-top: 100px;
+    width: 90%;
+    border: 1px solid #D89216;
+    display: flex;
+    padding: 17px ;
+    border-radius: 10px;
+
+    .box{
+        width: 95%;
+    }
+    .title{
+        background:none;
+        border: 0px;
+        border-bottom: 1px solid #D89216;
+        width: 100%;
+        font-size: 2rem;
+        color: #D89216;
+        outline: none;
+        padding: 10px 25px;
+        margin-bottom: 20px;
+    }
+
+    .privacy{
+        display: flex;
+        gap: 50px;
+        font-size: 1.5rem;
+        align-items: center;
+        padding-left: 25px;
+        color: #D89216;
+        font-weight: 700;
+        margin-bottom: 20px;
+
+        .dropdown{
+            display: block;
+            background: #000000;
+            color: #D89216;
+            outline: 1px solid #D89216;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            .options{
+                background: #000000;
+                color: #D89216;
+                outline: 1px solid #D89216;
+            }   
+        }
+
+    }
+    .images{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        color: #D89216;
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 10px;
+
+        .img{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            :nth-child(2){
+                margin: 10px auto;
+                border: 1px solid #D89216;
+            }
+
+            label{
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+
+                span{
+                    text-decoration: underline;
+                }
+            }
+
+            .img-input{
+                display: none;
+            }
+
+            .preview{
+                width: 400px;
+                max-height: 300px;
+            }
+
+            .small{
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            }
+        }
+    }
+    .button{
+        background-color: #D89216;
+        border-radius: 15px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        padding: 10px 25px;
+        margin-left: 20px;
+    }
+}
