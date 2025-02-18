@@ -5,7 +5,7 @@ import './styles.scss'
 const Item = (props) =>{
     return (
         <div className="item">
-            <h1 className="item-title">Title</h1>
+            <h1 className="item-title">{props.title}</h1>
             {
                 props.image ? 
                 <div className="image">
@@ -15,11 +15,7 @@ const Item = (props) =>{
                 </div>
                 : <></>
             }
-            <p className="item-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Totam, quis esse aliquid iusto accusantium possimus in eligendi vero quas?
-                 Maxime culpa suscipit aliquam tenetur veritatis tempore tempora eius, nihil quidem doloribus.
-                  Temporibus iure eum eligendi necessitatibus quam. Necessitatibus, veniam exercitationem delectus
-                   ratione quasi impedit architecto. Alias fugit quaerat mollitia aliquid?
+            <p className="item-content"> {props.content}
             </p>
             <div className="votes">
                 <div className="up">
