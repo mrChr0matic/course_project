@@ -54,6 +54,21 @@ export const userLogin = async (username, password)=>{
     }
 }
 
+export const userSignup = async (email, username, password )=>{
+    try{
+        const response = await axios.post(`${API_BASE_URL}/user`,{
+            email,
+            username,
+            password
+        })
+        return response.data;
+    }
+    catch(err){
+        console.log("Error creating user :", err);
+        throw err;
+    }
+}
+
 export const uploadImage = async (file) => {
     const formData = new FormData();
     formData.append("image", file);
@@ -114,6 +129,66 @@ export const getAllCommunity = async () =>{
     }
     catch(err){
         console.error("Error fetching community list :", err);
+        throw err;
+    }
+}
+
+export const joinCommunity = async (communityId) =>{
+    try{
+        const response = await axios.post(`${API_BASE_URL}/community/join`,{
+            communityId
+        },
+        
+        {
+            headers : {
+                "Authorization" : "Bearer " + localStorage.getItem("token"),
+                "Content-Type": "application/json",
+            }
+        })
+        return response.data;
+    }
+    catch(err){
+        console.error("Error joining community  :", err);
+        throw err;
+    }
+}
+
+export const createPost = async (communityId, title, content, image) =>{
+    try{
+        const response = await axios.post(`${API_BASE_URL}/posts`,{
+            communityId,
+            title,
+            content,
+            image
+        },
+        {    headers: {
+                "Authorization" : "Bearer " + localStorage.getItem("token"),
+                "Content-Type": "application/json",
+            }
+        })
+        return response.data;
+    }
+    catch(err){
+        console.error("Error creating post :", err);
+        throw err;
+    }
+}
+
+export const votePost = async (voteType, postId) =>{
+    try{
+        const response = await axios.post(`${API_BASE_URL}/posts/vote`,{
+            voteType,
+            postId
+        },
+        { headers: {
+            "Authorization" : "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+        }   
+        });
+        return response.data;
+    }
+    catch(err){
+        console.error("Error voting in the post :", err);
         throw err;
     }
 }

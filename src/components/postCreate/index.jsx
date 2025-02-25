@@ -1,19 +1,42 @@
 import "./styles.scss";
 import { useState } from "react";
+import { createPost as createPostAPI, uploadImage as uploadImageAPI } from "../../api/api";
 
-const CreatePost = (props) =>{
+const CreatePost = (props) => {
     const [title, setTitle] = useState("");
-    const [content,setContent] = useState("");
+    const [content, setContent] = useState("");
     const [postImage, setPostImage] = useState(null);
-    const [loading,setLoading] =useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const handleImageChange = (e) => {
-        setPostImage(e.target.files[0]); 
+        setPostImage(e.target.files[0]);
     };
 
-    const handleSubmit = () =>{
-        props.setPost(!props.post)
-    }
+    const handleSubmit = async () => {
+        if (!title || !content) {
+            setError("Title and content are required");
+            return;
+        }
+
+        setLoading(true);
+        setError("");
+
+        try {
+            let imageUrl = null;
+            if (postImage) {
+                imageUrl = await uploadImageAPI(postImage);
+            }
+            await createPostAPI(props.communityId, title, content, imageUrl);
+            alert("Post created successfully!");
+            props.setPost(false); 
+        } catch (err) {
+            setError("Failed to create post. Try again.");
+            console.error("Error:", err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="create-post">
@@ -37,19 +60,21 @@ const CreatePost = (props) =>{
                     />
                     <div className="images">
                         <div className="img">
-                            <label>Post Image: <span>Choose File</span>
-                                <input type="file" onChange={handleImageChange} accept="image/*" className="img-input-here"/>
+                            <label>
+                                Post Image: <span>Choose File</span>
+                                <input type="file" onChange={handleImageChange} accept="image/*" className="img-input"/>
                             </label>
                             {postImage && <p className="postprev">{postImage.name}</p>}
                         </div>
                     </div>
-                    <button type="button" className="button"  disabled={loading} onClick={handleSubmit}>
+                    {error && <p className="error">{error}</p>}
+                    <button type="button" className="button" disabled={loading} onClick={handleSubmit}>
                         {loading ? "Creating..." : "Post"}
                     </button>
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default CreatePost;

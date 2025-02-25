@@ -29,6 +29,7 @@ const Community = (props) =>{
              icon={ currComm ? currComm.icon : ""}
               title={currComm ? currComm.name : ""}
               post={props.post} setPost={props.setPost}
+              commId = {currComm.id}
               />
               
             <div className="item-div">
@@ -42,6 +43,7 @@ const Community = (props) =>{
                         upvotes={post.upvotes} 
                         downvotes={post.downvotes} 
                         author={post.author.username}
+                        id={post.id}
                         community={currComm.name}
                         />
                     ))}

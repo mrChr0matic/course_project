@@ -56,7 +56,7 @@ function App() {
               }
               {
                 post &&
-                <CreatePost post={post} setPost={setPost} />
+                <CreatePost post={post} setPost={setPost} communityId={community.id}/>
               }
             </>
           }>

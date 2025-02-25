@@ -34,7 +34,7 @@ const Create = () => {
 
 
     const handleSubmit = async () => {
-        if (!title || !banner || !icon) {
+        if (!title) {
             setError("Please fill all fields and select images");
             return;
         }
@@ -43,8 +43,12 @@ const Create = () => {
         setError("");
 
         try {
-            const uploadedBannerUrl = await handleUploadImage(banner);
-            const uploadedIconUrl = await handleUploadImage(icon);
+            const uploadedBannerUrl = null;
+                if(banner)
+                    uploadedBannerUrl=await handleUploadImage(banner);
+            const uploadedIconUrl = null;
+                if(icon) 
+                    uploadedIconUrl= await handleUploadImage(icon);
 
             const response = await createCommunity(title,uploadedBannerUrl,uploadedIconUrl);
 
