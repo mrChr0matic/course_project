@@ -4,8 +4,10 @@
         display: flex;
         padding-right: 60px;
         position: relative;
+        width: 100%;
         .items{
             margin-top: 20px;
+            width: 100%;
             display: flex;
             gap: 10px;
             flex-direction: column;

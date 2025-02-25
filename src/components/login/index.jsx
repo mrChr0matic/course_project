@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./styles.scss";
+import { userLogin } from "../../api/api";
 
 const Login = (props) => {
     const [isLogin, setIsLogin] = useState(true); 
@@ -47,7 +48,23 @@ const Login = (props) => {
     };
 
     const handleClick = () => props.setLogin(!props.login);
-    console.log(props.login)
+    
+    const handleLoginSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const data = await userLogin(loginData.username, loginData.password);
+
+            localStorage.setItem("token", data); 
+
+            console.log("Login successful:", data);
+            props.setLogin(false);
+            console.log(localStorage.getItem("token"))
+        } 
+        catch (err) {
+            console.error("Login error:", err.response?.data || err.message);
+        }
+    };
+
 
 
     return (
@@ -55,7 +72,7 @@ const Login = (props) => {
             <div className="login">
                 <FontAwesomeIcon icon={faClose} className="close" onClick={handleClick}/>
                 {isLogin ? (
-                    <form className="login-form">
+                    <form className="login-form" onSubmit={handleLoginSubmit}>
                         <input
                             type="text"
                             name="username"
@@ -83,7 +100,7 @@ const Login = (props) => {
                                 onClick={togglePasswordVisibility}
                             />
                         </div>
-                        <button type="submit" className="login">Login</button>
+                        <button type="submit" className="login" >Login</button>
                         <p>
                             Don't have an account? <span onClick={toggleForm} className="toggler">Sign Up</span>
                         </p>

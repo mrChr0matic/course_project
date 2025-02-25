@@ -61,3 +61,22 @@
         }
     }
 }
+
+.author{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #D89216;
+
+    .author-details{
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 0;
+
+        .comm{
+            text-decoration: underline;
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+    }
+}

@@ -7,11 +7,15 @@ import MainBody from './components/main-body';
 import Sidebar from './components/sidebar';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Login from './components/login';
+import CreatePost from './components/postCreate';
 
 function App() {  
 
   const [login,setLogin]=useState(false);
+  const [post,setPost]=useState(false);
+  const [community,setCommunity]=useState('')
 
+  
   return (
     <div className="App">
       <Router>
@@ -21,7 +25,7 @@ function App() {
               <Header login={login} setLogin={setLogin}/>
               <div className='content'>
                 <div className='content-1'>
-                  <Sidebar/>
+                  <Sidebar community={community} setCommunity={setCommunity}/>
                 </div>
                 <div className='content-2'>
                   <MainBody/>
@@ -35,20 +39,24 @@ function App() {
           }>
           </Route>
 
-          <Route path='/community' element={
+          <Route path={`/community/${community.name}`} element={
             <>
               <Header login={login} setLogin={setLogin}/>
               <div className='content'>
                 <div className='content-1'>
-                  <Sidebar/>
+                  <Sidebar community={community} setCommunity={setCommunity}/>
                 </div>
                 <div className='content-2'>
-                  <Community/>
+                  <Community name={community.id} post={post} setPost={setPost}/>
                 </div>
               </div>
               {
                 login &&
                 <Login login={login} setLogin={setLogin}/>
+              }
+              {
+                post &&
+                <CreatePost post={post} setPost={setPost} />
               }
             </>
           }>
@@ -59,7 +67,7 @@ function App() {
               <Header login={login} setLogin={setLogin}/>
               <div className='content'>
                 <div className='content-1'>
-                  <Sidebar/>
+                  <Sidebar community={community} setCommunity={setCommunity}/>
                 </div>
                 <div className='content-2'>
                   <Create/>

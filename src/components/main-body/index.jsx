@@ -23,7 +23,9 @@ const MainBody = () =>{
         <div className="main-body">
             {posts.length > 0 ? (
                 posts.map(post => (
-                    <Item title={post.title} content={post.content}/>
+                    <Item title={post.title} content={post.content} upvotes={post.upvotes} downvotes={post.downvotes}
+                        community={post.community.name} author={post.author.username}
+                    />
                 ))
             ) : (
                 <p>No posts available</p>

@@ -5,7 +5,13 @@ import './styles.scss'
 const Item = (props) =>{
     return (
         <div className="item">
-            <h1 className="item-title">{props.title}</h1>
+            <div className="author">
+                <h1 className="item-title">{props.title}</h1>
+                <div className="author-details">
+                    <p className="auth">{props.author}</p>
+                    <p className="comm">c/{props.community}</p>
+                </div>
+            </div>
             {
                 props.image ? 
                 <div className="image">
@@ -19,10 +25,10 @@ const Item = (props) =>{
             </p>
             <div className="votes">
                 <div className="up">
-                    <FontAwesomeIcon icon={faArrowUp} className="ico-up"/> <span>10</span>
+                    <FontAwesomeIcon icon={faArrowUp} className="ico-up"/> <span>{props.upvotes}</span>
                 </div>
                 <div className="down">
-                    <FontAwesomeIcon icon={faArrowDown} className="ico-down"/> <span>10</span>
+                    <FontAwesomeIcon icon={faArrowDown} className="ico-down"/> <span>{props.downvotes}</span>
                 </div>
                 <div className="share">
                     <FontAwesomeIcon icon={faShare} className="ico-share"/> <span>Share</span>
